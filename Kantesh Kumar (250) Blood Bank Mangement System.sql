@@ -2,19 +2,19 @@ Create database blood_bank_management_system;
 use blood_bank_management_system;
 CREATE TABLE Donors (
     DonorID INT PRIMARY KEY,
-    Name VARCHAR(100),
+    Name VARCHAR(50),
     Age INT,
     BloodType VARCHAR(5),
     Phone VARCHAR(15),
-    Address VARCHAR(255)
+    Address VARCHAR(25)
 );
 CREATE TABLE Recipients (
     RecipientID INT PRIMARY KEY,
-    Name VARCHAR(100),
+    Name VARCHAR(15),
     Age INT,
     BloodType VARCHAR(5),
     Phone VARCHAR(15),
-    Address VARCHAR(255)
+    Address VARCHAR(25)
 );
 CREATE TABLE Donations (
     DonationID INT PRIMARY KEY,
@@ -49,27 +49,27 @@ CREATE TABLE BloodTests (
     TestID INT PRIMARY KEY,
     DonationID INT,
     TestType VARCHAR(100),
-    Result VARCHAR(255),
+    Result VARCHAR(100),
     TestDate DATE,
     FOREIGN KEY (DonationID) REFERENCES Donations(DonationID)
 );
 CREATE TABLE DonorMedicalHistory (
     HistoryID INT PRIMARY KEY,
     DonorID INT,
-    MedicalCondition VARCHAR(255),
+    MedicalCondition VARCHAR(80),
     DiagnosisDate DATE,
     FOREIGN KEY (DonorID) REFERENCES Donors(DonorID)
 );
 CREATE TABLE RecipientMedicalHistory (
     HistoryID INT PRIMARY KEY,
     RecipientID INT,
-    MedicalCondition VARCHAR(255),
+    MedicalCondition VARCHAR(200),
     DiagnosisDate DATE,
     FOREIGN KEY (RecipientID) REFERENCES Recipients(RecipientID)
 );
 CREATE TABLE BloodBanks (
     BankID INT PRIMARY KEY,
-    Name VARCHAR(100),
-    Location VARCHAR(255),
+    Name VARCHAR(25),
+    Location VARCHAR(50),
     Phone VARCHAR(15)
 );
